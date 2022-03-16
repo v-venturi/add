@@ -4,10 +4,7 @@ import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 
 @Entity(name = "escola")
 @Data
@@ -18,5 +15,8 @@ public class Escola {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
     private String nome;
+    @Embedded
     Endereco endereco;
+
+
 }

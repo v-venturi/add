@@ -1,14 +1,9 @@
 package com.vventuri.add.entity;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Date;
 
 @Entity(name = "aluno")
@@ -22,4 +17,7 @@ public class Aluno {
     private String nome;
     @JsonFormat(pattern = "dd/MM/yyyy")
     Date dataNascimento;
+    @ManyToOne(cascade = CascadeType.REFRESH)
+    @JoinColumn(name = "turma_id")
+    Turma turma;
 }

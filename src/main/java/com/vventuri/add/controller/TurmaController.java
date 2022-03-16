@@ -7,6 +7,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("turma")
@@ -20,24 +21,24 @@ public class TurmaController {
         return turmaRepository.findAll();
     }
 
-    @GetMapping(path = "/id")
-    public Turma getById(Integer id){
-        return turmaRepository.getById(id);
+    @GetMapping(path = "/{id}")
+    public Optional<Turma> getById(@PathVariable Integer id){
+        return turmaRepository.findById(id);
     }
     @PostMapping
     public Turma Create(Turma turma){
         return turmaRepository.save(turma);
 
     }
-    @PutMapping(path = "/id")
-    public Turma update(@PathVariable int id, @RequestBody Turma turma){
+    @PutMapping(path = "/{id}")
+    public Turma update(@PathVariable Integer id, @RequestBody Turma turma){
         Turma tempTurma = turmaRepository.getById(id);
         turma.setId(tempTurma.getId());
         BeanUtils.copyProperties(turma, tempTurma, "id");
         return turmaRepository.save(tempTurma);
     }
-    @DeleteMapping(path = "/id")
-    public void remove(@PathVariable int id){
+    @DeleteMapping(path = "/{id}")
+    public void remove(@PathVariable Integer id){
         turmaRepository.deleteById(id);
     }
 

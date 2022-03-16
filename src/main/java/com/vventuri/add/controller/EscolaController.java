@@ -7,6 +7,7 @@ import org.springframework.beans.BeanUtils;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("escola")
@@ -20,24 +21,24 @@ public class EscolaController {
         return escolaRepository.findAll();
     }
 
-    @GetMapping(path = "/id")
-    public Escola getById(Integer id){
-        return escolaRepository.getById(id);
+    @GetMapping(path = "/{id}")
+    public Optional<Escola> getById(@PathVariable Integer id){
+        return escolaRepository.findById(id);
     }
     @PostMapping
-    public Escola Create(Escola escola){
+    public Escola Create(@RequestBody Escola escola){
         return escolaRepository.save(escola);
 
     }
-    @PutMapping(path = "/id")
-    public Escola update(@PathVariable int id, @RequestBody Escola escola){
+    @PutMapping(path = "/{id}")
+    public Escola update(@PathVariable Integer id, @RequestBody Escola escola){
         Escola tempEscola = escolaRepository.getById(id);
         escola.setId(tempEscola.getId());
         BeanUtils.copyProperties(escola, tempEscola, "id");
         return escolaRepository.save(tempEscola);
     }
-    @DeleteMapping(path = "/id")
-    public void remove(@PathVariable int id){
+    @DeleteMapping(path = "/{id}")
+    public void remove(@PathVariable Integer id){
         escolaRepository.deleteById(id);
     }
 
