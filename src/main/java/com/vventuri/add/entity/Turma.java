@@ -5,18 +5,13 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
 
-@Entity(name = "escola")
+@Entity(name = "turma")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-public class Escola {
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
+public class Turma {
     private int id;
     private String nome;
-    Endereco endereco;
+    private int capacidade;
 }
