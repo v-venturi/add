@@ -53,6 +53,7 @@ This project was developed with:
 
 git clone https://github.com/v-venturi/add.git
 - You need to have **MySQL** installed on your machine to run the API.
+- You don't need to create the database, **Hibernate** create its following the Java Classes and relationships.
 
 * **Just remember to change the database password in src/main/resources/application.yml**
 
