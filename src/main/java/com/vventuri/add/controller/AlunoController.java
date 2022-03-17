@@ -18,6 +18,7 @@ public class AlunoController {
     private final AlunoRepository alunoRepository;
     private final TurmaRepository turmaRepository;
 
+
     @GetMapping
     public List<Aluno> getAll(){
         return alunoRepository.findAll();

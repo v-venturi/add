@@ -1,0 +1,42 @@
+<html lang="pt-br" xmlns:th="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+</head>
+<body>
+
+<h2>Cadastro de alunos</h2>
+
+<table class="table table-striped">
+    <thead>
+    <tr>
+        <th scope="col">Id</th>
+        <th scope="col">Nome</th>
+        <th scope="col">Data de Nascimento</th>
+        <th scope="col">Turma</th>
+
+    </tr>
+    </thead>
+
+    <tbody>
+    <tr th:each="aluno : ${alunos}">
+        <th scope="row" th:text="${aluno.id}"></th>
+        <td th:text="${aluno.nome}"></td>
+        <td th:text="${aluno.dataNascimento}"></td>
+        <td th:text="${aluno.turma?.nome}"></td>
+
+    </tr>
+    </tbody>
+</table>
+
+</body>
+
+<a th:href="@{/aluno/form/add}">
+    <button class="btn btn-primary">Cadastrar Aluno</button>
+</a>
+
+
+</html>

@@ -1,0 +1,1 @@
+INSERT INTO `school`.`escola` (`id`, `bairro`, `cidade`, `complemento`, `estado`, `logradouro`, `nome`) VALUES ('1', 'Centro', 'Taubate', 'terreo', 'SP', 'Rua do Mamao', 'Anchieta');

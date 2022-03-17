@@ -10,6 +10,7 @@ import javax.persistence.*;
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
+
 public class Turma {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
