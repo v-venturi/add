@@ -2,7 +2,7 @@
 
 ## About the APP/API
 
-A  simple API for manage Students, Schools and Classes. It is built with Java, Spring Boot, MySQL and Thymeleaf.
+A  simple API to manage Students, Schools and Classes. It is built with Java, Spring Boot, MySQL and Thymeleaf.
 
 ## Features
 
